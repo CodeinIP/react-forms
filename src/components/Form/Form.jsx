@@ -9,11 +9,17 @@ const Form = () => {
   const [form, setForm] = useState(initialValue);
   const [tableData, setTableData] = useState([]);
   const [sortValue, setSortValue] = useState("");
+  const [data,setData] = useState();
+  const[limit,setLimit] =useState(5);
+  const[page,setPage] =useState(1);
+  const[totalCount,setTotalCount]=useState();
   useEffect(() => {
-    axios.get(" http://localhost:8080/employee ").then((r) => {
+    axios.get(`http://localhost:8080/employee?_limit=${limit}&_page=${page}`).then((r) => {
+      setTotalCount(Number(r.headers["x-total-count"]));
       setTableData(r.data);
+      // console.log(r.headers."x-total-count")
     });
-  }, []);
+  }, [limit,page]);
   const handleOnChange = (e) => {
     const { name, value, type, checked } = e.target;
     if (type == "checkbox") {
@@ -22,18 +28,25 @@ const Form = () => {
       setForm({ ...form, [name]: value });
     }
   };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // console.log(form);
-    // let data = JSON.stringify({...form});
-    // console.log(data);
-    axios.post("http://localhost:8080/employee");
-    // setTableData([...tableData, { ...form, id: Date.now() }]);
-    // console.log(tableData);
+     axios({
+      method:"post",
+      url:"http://localhost:8080/employee",
+      data:form,
+      headers:{"Content-Type":"application/json"}
+    })
+    axios.get("http://localhost:8080/employee")
+    .then((res)=>setTableData(res.data))
   };
   const handleDelete = (id) => {
-    let result = tableData.filter((ele) => ele.id != id);
-    setTableData(result);
+    axios({
+      method:"DELETE",
+      url:"http://localhost:8080/employee/"+id
+    }).then((res)=>console.log(res))
+    axios.get("http://localhost:8080/employee")
+    .then((res)=>setTableData(res.data))
   };
   const handleSort = async (e) => {
     console.log(e.target.value);
@@ -54,7 +67,7 @@ const Form = () => {
     await axios.get("http://localhost:8080/employee").then((response) => {
       console.log(response.data);
       if (sortingValue == "asc") {
-        let final = response.data.sort(
+        let final = (response.data).sort(
           (a, b) => Number(a.salary) - Number(b.salary)
         );
         setTableData(final);
@@ -68,6 +81,7 @@ const Form = () => {
       }
     });
   };
+
   return (
     <div className={styles.main}>
       <form className={styles.form} onSubmit={(e) => handleFormSubmit(e)}>
@@ -126,6 +140,11 @@ const Form = () => {
         handleDelete={handleDelete}
         handleSort={handleSort}
         handleFilter={handleFilter}
+        setLimit={setLimit}
+        setPage={setPage}
+        limit={limit}
+        page={page}
+        totalCount={totalCount}
       />
     </div>
   );

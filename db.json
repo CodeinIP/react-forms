@@ -10,37 +10,76 @@
       "maritalStatus": false
     },
     {
-      "id": 2,
-      "name": "Punk",
-      "age": 24,
-      "address": "Vill. Solag P. O Ranikotla Teh. Sadar",
-      "department": "Revenue",
-      "salary": 10500,
-      "maritalStatus": true
+      "maritalStatus": false,
+      "name": "ABC",
+      "age": "23",
+      "address": "VILL MANDVA PO PATAL",
+      "department": "Force",
+      "salary": "123123",
+      "id": 2
     },
     {
-      "headers": {
-        "Content-Type": "application/json"
-      },
-      "body": {
-        "form": {
-          "maritalStatus": false,
-          "name": "Inder Pal",
-          "address": "Vill. Bhadetar P. O Ranikotla Teh. Sadar",
-          "age": "244765",
-          "department": "Force",
-          "salary": "6666620",
-          "form": {
-            "maritalStatus": false,
-            "name": "Inder Pal",
-            "address": "Vill. Bhadetar P. O Ranikotla Teh. Sadar",
-            "age": "244765",
-            "department": "Force",
-            "salary": "6666620"
-          }
-        }
-      },
+      "maritalStatus": false,
+      "name": "Inder Pal",
+      "address": "Vill. Bhadetar P. O Ranikotla Teh. Sadar",
+      "age": "24",
+      "department": "Safety",
+      "salary": "900",
       "id": 3
+    },
+    {
+      "maritalStatus": false,
+      "name": "Inder Pal",
+      "address": "Vill. Bhadetar P. O Ranikotla Teh. Sadar",
+      "age": "24",
+      "department": "Safety",
+      "salary": "900",
+      "id": 4
+    },
+    {
+      "maritalStatus": false,
+      "name": "Inder Pal",
+      "address": "Vill. Bhadetar P. O Ranikotla Teh. Sadar",
+      "age": "24",
+      "department": "Safety",
+      "salary": "900",
+      "id": 5
+    },
+    {
+      "maritalStatus": false,
+      "name": "Inder Pal",
+      "address": "Vill. Bhadetar P. O Ranikotla Teh. Sadar",
+      "age": "24",
+      "department": "Safety",
+      "salary": "900",
+      "id": 6
+    },
+    {
+      "maritalStatus": false,
+      "name": "Inder Pal",
+      "address": "Vill. Bhadetar P. O Ranikotla Teh. Sadar",
+      "age": "24",
+      "department": "Safety",
+      "salary": "900",
+      "id": 7
+    },
+    {
+      "maritalStatus": false,
+      "name": "Inder Pal",
+      "address": "Vill. Bhadetar P. O Ranikotla Teh. Sadar",
+      "age": "24",
+      "department": "Safety",
+      "salary": "900",
+      "id": 8
+    },
+    {
+      "maritalStatus": false,
+      "name": "Inder Pal",
+      "address": "Vill. Bhadetar P. O Ranikotla Teh. Sadar",
+      "age": "24",
+      "department": "Safety",
+      "salary": "900",
+      "id": 9
     }
   ]
 }
